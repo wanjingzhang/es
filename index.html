@@ -4,9 +4,30 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <div></div>
+  </body>
+  <!-- supports css 判断浏览器支持的css -->
+  <script src="https://www.unpkg.com/supports-css@0.1.5"></script>
+  <script>
+    const tests = ["at-container", "nth-of-s", "scroll-timeline"];
+    // Or, test the whole suite with tests: 'all'
+    SupportsCSS.init({
+      tests,
+      unsupportedClasses: false,
+      supportsPrefix: "css",
+    });
+
+    if (SupportsCSS.AtContainerStyleProperties) {
+      // Container style queries with custom properties are supported
+      SupportsCSS.addTest("accent-color", CSS.supports("accent-color: red"));
+    }
+
+    console.log(SupportsCSSTests.results);
+  </script>
   <!-- <script type="text/javascript" src="1contructor.js"></script> -->
   <!-- <script type="text/javascript" src="2getPrototype.js"></script> -->
   <script type="text/javascript" src="3closure.js"></script>
